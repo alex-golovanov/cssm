@@ -1,0 +1,13 @@
+{ 
+	"presets": ["react", "flow", "es2015"],
+	"plugins": [
+		"react-hot-loader/babel",
+		"flow-react-proptypes",
+		"transform-function-bind",	
+		"transform-class-properties",
+		"transform-decorators",
+		"transform-object-rest-spread",
+		["resolver", { "resolveDirs": ["src"] }],
+		["lodash", { "id": ["lodash", "recompose", "react-virtualized"] }]
+	]
+}

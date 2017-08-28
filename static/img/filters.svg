@@ -1,0 +1,17 @@
+<svg>
+	<defs>
+		<filter id="d3-line-shadow" x="0" y="0" width="200%" height="200%">
+
+			<feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur"/>
+			<feOffset in="blur" dx="2" dy="2" result="offsetBlur"/>
+			<feFlood floodColor="#333" floodOpacity="1" result="offsetColor"/>
+			<feComposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur"/>
+
+			<feMerge>
+				<feMergeNode in="offsetBlur"/>
+				<feMergeNode in="SourceGraphic"/>
+			</feMerge>
+
+		</filter>
+	</defs>
+ </svg>
