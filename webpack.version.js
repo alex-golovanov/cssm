@@ -1,9 +1,10 @@
 const path = require('path')
 const fs = require('fs')
+const chalk = require('chalk')
 const { html, json } = require('./version.js')
 
 function VersionPlugin( options ) {
-	console.log( options )
+	console.log( 'App version: ', chalk.bold.green.inverse(options.ver) )
 }
 
 

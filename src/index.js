@@ -1,21 +1,36 @@
-import 'styles/index.scss'
 import 'react-virtualized/styles.css'
+import 'styles/index.scss'
 
-import { AppContainer } from 'react-hot-loader'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
+import { Provider } from 'react-redux'
+import { CookiesProvider } from 'react-cookie'
+import { BrowserRouter as Router, Switch, Route } from 'react-router'
+import { ConnectedRouter } from 'react-router-redux'
 
 import { store, history } from 'store'
-import Root from 'containers'
+import App from 'containers/App'
 
 const rootElement = document.getElementById('root')
-const render = Component =>
+const render = (Component) => {
 	ReactDOM.render(
-		<AppContainer>
-			{Component}
-		</AppContainer>,
+		<CookiesProvider>
+			<Provider store={store}>
+				<AppContainer>
+					<ConnectedRouter history={history}>
+						<Component />
+					</ConnectedRouter>
+				</AppContainer>
+			</Provider>
+		</CookiesProvider>,
 		rootElement
 	)
+}
 
-render(<Root store={store} history={history}/>)
-if ( module.hot ) module.hot.accept( './containers/index', () => render(<Root store={store} history={history}/>) )
+render(App)
+
+
+if (module.hot) module.hot.accept('./containers/App', () => {
+	render(require('./containers/App').default)
+})

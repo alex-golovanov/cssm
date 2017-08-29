@@ -1,4 +1,7 @@
 [ignore]
+.*/node_modules/documentation/.*
+.*/node_modules/redux-form/.*
+.*/node_modules/.cache.*
 
 [include]
 

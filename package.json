@@ -1,6 +1,6 @@
 {
   "name": "simple-starter-app",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple starter app",
   "scripts": {
     "start": "node index.ssl.js",
@@ -16,6 +16,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+    "bulma": "^0.5.1",
     "classnames": "^2.2.5",
     "history": "^4.7.2",
     "lodash": "^4.17.4",
@@ -32,6 +33,7 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.6",
+    "react-toolbox": "^2.0.0-beta.12",
     "react-virtualized": "^9.9.0",
     "recompose": "^0.25.0",
     "redux": "^3.7.2",
@@ -63,6 +65,7 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "6.24.1",
     "babel-register": "^6.26.0",
+    "chalk": "^2.1.0",
     "css-loader": "^0.28.5",
     "express": "^4.15.4",
     "flow-bin": "^0.53.1",

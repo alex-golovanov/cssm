@@ -1,33 +1,25 @@
+// @flow
+
 import React from 'react'
 import { connect } from 'react-redux'
+import { Switch, Route } from 'react-router-dom'
+
+import routes from 'routes'
 
 import css from './index.scss'
 
-console.log(css)
-console.log(1243)
-
-class App extends React.Component {
-	
-	componentDidMount(){
-		console.log(css, 1234)
-	}
-
-	// componentWillMount(){
-	// 	console.log(this.props)
-	// }
+class App extends React.Component<Object> {
 
 	render() {
 
-		const { history, children } = this.props
-
 		return (
 			<div className={css.app}>
-				<h1>App</h1>
-				{children}
+				<Switch>
+					{routes.map(route => <Route key={route.path} {...route} />)}
+				</Switch>
 			</div>
 		)
 	}
 }
-
 
 export default connect()(App)

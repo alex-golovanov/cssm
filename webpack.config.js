@@ -13,27 +13,36 @@ var plugins = [
 
 	new HappyPack({
 		id: 'js',
+		threads: 4,
 		loaders: ['babel-loader'],
-		// verbose: false,
-		threads: 4
+		// verbose: false
+	}),
+	
+	new HappyPack({
+		id: 'styles',
+		threads: 1,
+		loaders: ['style-loader', 'raw-loader', 'sass-loader'],
+		// verbose: false
 	}),
 
-
-	// new HappyPack({
-	// 	id: 'styles',
-	// 	loaders: [
-	// 		'style-loader',
-	// 		{
-	// 			loader: 'css-loader',
-	// 			// options: {
-	// 			//   importLoaders: 1 
-	// 			// }
-	// 		},
-	// 		'postcss-loader', 
-	// 		'sass-loader'
-	// 	],
-	// 	// verbose: false
-	// }),
+	new HappyPack({
+		id: 'modules',
+		threads: 1,
+		loaders: [
+			'style-loader',
+			{
+				loader: 'css-loader',
+				options: {
+					modules: true,
+					localIdentName: '[name]--[local]--[hash:base64:8]',
+					importLoaders: 2
+				}
+			},
+			'postcss-loader',
+			'sass-loader'
+		],
+		// verbose: false
+	}),
 
 	new webpack.HotModuleReplacementPlugin(),
 	new webpack.NoEmitOnErrorsPlugin(),
@@ -79,6 +88,13 @@ const modulePaths = {
 	styles: 'src/styles',
 }
 
+const moduleExclusions = [
+	/\.global/, 
+	/bulma/, 
+	/react-virtualized/, 
+	__dirname + '/src/styles'
+]
+
 module.exports = {
 
 	devtool: isProd ? 'hidden-source-map' : 'cheap-eval-source-map',
@@ -119,31 +135,20 @@ module.exports = {
 	plugins: plugins,
 
 	module: {
-		rules: [
-			{
-				test: /\.(js|jsx)$/,
-				include: __dirname,
-				exclude: /node_modules/,
-				use: ['happypack/loader?id=js']
-				// use: ['babel-loader']
-			}, {
-				test: /\.(css|scss)$/,
-				include: __dirname,
-				// use: ['happypack/loader?id=styles']
-				// use: ['style-loader', 'raw-loader', 'sass-loader'],
-				use: [
-					'style-loader',
-					{
-						loader: 'css-loader',
-						options: {
-							importLoaders: 1 // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
-						}
-					},
-					'postcss-loader',
-					'sass-loader'
-				]
-			}
-		]
+		rules: [{
+			test: /\.(js|jsx)$/,
+			include: __dirname,
+			exclude: /node_modules/,
+			use: ['happypack/loader?id=js']
+		}, {
+			test: /\.(css|scss|sass)$/,
+			exclude: moduleExclusions,
+			use: ['happypack/loader?id=modules']
+		}, {
+			test: /\.(css|scss|sass)$/,
+			include: moduleExclusions,
+			use: ['happypack/loader?id=styles']
+		}]
 	}
 }
 
