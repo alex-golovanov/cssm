@@ -1,6 +1,6 @@
 {
   "name": "simple-starter-app",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple starter app",
   "scripts": {
     "start": "node index.ssl.js",
@@ -16,7 +16,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
-    "bulma": "^0.5.1",
+    "bootstrap": "next",
     "classnames": "^2.2.5",
     "history": "^4.7.2",
     "lodash": "^4.17.4",

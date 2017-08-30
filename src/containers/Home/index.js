@@ -15,11 +15,11 @@ type PropTypes = {
 
 const Home = function( props: PropTypes ) : React$Element<any> {
 	return (
-		<div className={cn(css.home, 'columns')}>
-			<div className="column">
+		<div className={cn(css.home, 'row')}>
+			<div className="col">
 				<Input type='email' label='Email address' icon='email' value={''} onChange={(e) => console.log(e)} />
 			</div>
-			<div className="column"><Button icon='bookmark' label='Bookmark' raised primary /></div>
+			<div className="col"><Button icon='bookmark' label='Bookmark' raised primary /></div>
 			
 		</div>
 	)
