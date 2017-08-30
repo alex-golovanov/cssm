@@ -8,8 +8,6 @@ import { AppBar, Layout, NavDrawer, Panel,  } from 'react-toolbox'
 import routes from 'routes'
 import SideNav from 'containers/SideNav'
 
-// import css from './index.scss'
-
 type PropTypes = {
 	dispatch: Function
 };

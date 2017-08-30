@@ -494,9 +494,9 @@ babel-plugin-check-es2015-constants@^6.22.0:
   dependencies:
     babel-runtime "^6.22.0"
 
-babel-plugin-flow-react-proptypes@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-flow-react-proptypes/-/babel-plugin-flow-react-proptypes-5.1.1.tgz#d8915c65765c733f4b0030f406ebb67da89646c6"
+babel-plugin-flow-react-proptypes@^5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-flow-react-proptypes/-/babel-plugin-flow-react-proptypes-5.1.2.tgz#c26cd15d62737d9fe5a47440ea8d49c56093279f"
   dependencies:
     babel-core "^6.25.0"
     babel-template "^6.25.0"
@@ -2598,9 +2598,9 @@ handle-thing@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-1.2.5.tgz#fd7aad726bf1a5fd16dfc29b2f7a6601d27139c4"
 
-happypack@^4.0.0-beta.4:
-  version "4.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/happypack/-/happypack-4.0.0-beta.4.tgz#74a01c69e4f0c2add4809b40739533d0cc023436"
+happypack@^4.0.0-beta.5:
+  version "4.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/happypack/-/happypack-4.0.0-beta.5.tgz#dbedb5c5dce86ebfc1acc8804e8abc61f773091d"
   dependencies:
     async "1.5.0"
     json-stringify-safe "5.0.1"
