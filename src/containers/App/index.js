@@ -3,21 +3,40 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
+import { AppBar, Checkbox, IconButton, Layout, NavDrawer, Panel, Sidebar, List, ListItem, ListCheckbox, ListDivider, ListSubHeader  } from 'react-toolbox'
 
 import routes from 'routes'
+import SideNav from 'containers/SideNav'
 
-import css from './index.scss'
+// import css from './index.scss'
 
-class App extends React.Component<Object> {
+type PropTypes = {
+	dispatch: Function
+};
+
+class App extends React.Component<PropTypes> {
+
+	props: PropTypes;
 
 	render() {
 
 		return (
-			<div className={css.app}>
-				<Switch>
-					{routes.map(route => <Route key={route.path} {...route} />)}
-				</Switch>
-			</div>
+			<Layout>
+				
+				<NavDrawer width="wide" active={false} pinned={false} permanentAt='sm' onOverlayClick={ () => null }>
+					<SideNav />
+				</NavDrawer>
+					
+				<Panel>
+					<AppBar leftIcon='menu' onLeftIconClick={ () => null } />
+
+					<div className="container">
+						<Switch>
+							{routes.map(route => <Route key={route.path} {...route} />)}
+						</Switch>
+					</div>	
+				</Panel>
+			</Layout>
 		)
 	}
 }

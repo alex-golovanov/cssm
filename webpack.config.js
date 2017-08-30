@@ -88,7 +88,7 @@ const modulePaths = {
 	styles: 'src/styles',
 }
 
-const moduleExclusions = [
+const stylePaths = [
 	/\.global/, 
 	/bulma/, 
 	/react-virtualized/, 
@@ -142,11 +142,11 @@ module.exports = {
 			use: ['happypack/loader?id=js']
 		}, {
 			test: /\.(css|scss|sass)$/,
-			exclude: moduleExclusions,
+			exclude: stylePaths,
 			use: ['happypack/loader?id=modules']
 		}, {
 			test: /\.(css|scss|sass)$/,
-			include: moduleExclusions,
+			include: stylePaths,
 			use: ['happypack/loader?id=styles']
 		}]
 	}
