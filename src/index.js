@@ -6,7 +6,6 @@ import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 import { CookiesProvider } from 'react-cookie'
-import { BrowserRouter as Router, Switch, Route } from 'react-router'
 import { ConnectedRouter } from 'react-router-redux'
 
 import { store, history } from 'store'
@@ -29,7 +28,6 @@ const render = (Component) => {
 }
 
 render(App)
-
 
 if (module.hot) module.hot.accept('./containers/App', () => {
 	render(require('./containers/App').default)

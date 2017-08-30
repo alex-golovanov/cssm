@@ -3,7 +3,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
-import { AppBar, Checkbox, IconButton, Layout, NavDrawer, Panel, Sidebar, List, ListItem, ListCheckbox, ListDivider, ListSubHeader  } from 'react-toolbox'
+import { AppBar, Layout, NavDrawer, Panel,  } from 'react-toolbox'
 
 import routes from 'routes'
 import SideNav from 'containers/SideNav'

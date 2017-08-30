@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import { NavDrawer, List, ListItem, ListCheckbox, ListDivider, ListSubHeader  } from 'react-toolbox'
+import { List, ListItem, ListDivider, ListSubHeader  } from 'react-toolbox'
 
 
 type PropTypes = {

@@ -14,7 +14,15 @@ var plugins = [
 	new HappyPack({
 		id: 'js',
 		threads: 4,
-		loaders: ['babel-loader'],
+		loaders: [
+			'babel-loader',
+			{
+				loader: 'eslint-loader',
+				options: {
+					configFile: './.eslintrc',
+				}
+			}
+		],
 		// verbose: false
 	}),
 	
