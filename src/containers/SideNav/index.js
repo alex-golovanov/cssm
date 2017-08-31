@@ -7,8 +7,8 @@ import { List, ListItem, ListDivider, ListSubHeader  } from 'react-toolbox'
 
 
 const Divider = function( props: {margin: any} ) {
-	const { margin } = props
-	return <hr style={{height: 1, margin: 0}} />	
+	const { margin = 0 } = props
+	return <hr style={{height: 1, margin}} />	
 } 
 
 
