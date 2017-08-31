@@ -10,5 +10,5 @@ $color: blue;
 .box { @include border-radius(10px); background-color: hsla(0, 0%, 20%, 1); }
 
 .home {
-	color: $color;
+	color: $gray-900; /* variable from bootstrap config */
 }

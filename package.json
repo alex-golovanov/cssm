@@ -1,6 +1,6 @@
 {
   "name": "simple-starter-app",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "React/Redux starter pack",
   "keywords": [
     "React/Redux",
@@ -100,6 +100,7 @@
     "redux-logger": "^3.0.6",
     "sass": "^1.0.0-beta.2",
     "sass-loader": "^6.0.6",
+    "sass-resources-loader": "^1.3.0",
     "style-loader": "^0.18.2",
     "svg-url-loader": "^2.1.1",
     "webpack": "^3.5.5",

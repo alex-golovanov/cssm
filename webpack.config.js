@@ -13,6 +13,7 @@ var plugins = [
 
 	new HappyPack({
 		id: 'js',
+		verbose: false,
 		threads: 4,
 		loaders: [
 			'babel-loader',
@@ -22,20 +23,20 @@ var plugins = [
 					configFile: './.eslintrc',
 				}
 			}
-		],
-		// verbose: false
+		]
 	}),
 	
 	new HappyPack({
 		id: 'styles',
-		threads: 1,
-		loaders: ['style-loader', 'raw-loader', 'sass-loader'],
-		// verbose: false
+		verbose: false,
+		threads: 2,
+		loaders: ['style-loader', 'raw-loader', 'sass-loader']
 	}),
 
 	new HappyPack({
 		id: 'modules',
-		threads: 1,
+		verbose: false,
+		threads: 2,
 		loaders: [
 			'style-loader',
 			{
@@ -47,9 +48,14 @@ var plugins = [
 				}
 			},
 			'postcss-loader',
-			'sass-loader'
-		],
-		// verbose: false
+			'sass-loader',
+			{
+				loader: 'sass-resources-loader',
+				options: {
+					resources: './src/styles/core.scss'
+				}
+			}
+		]
 	}),
 
 	new webpack.HotModuleReplacementPlugin(),
@@ -66,15 +72,12 @@ var plugins = [
 		filename: 'vendor.bundle.js'
 	}),
 
-	// new webpack.optimize.CommonsChunkPlugin({name: 'meta', chunks: ['vendor'], filename: 'meta.[hash].js'}),
 	new webpack.NamedModulesPlugin(),
 	new VersionPlugin({ ver: pckg.version }),
 	new ProgressBarPlugin()
-	// new webpack.optimize.ModuleConcatenationPlugin()
 ]
 
 if( isProd ) plugins.push(new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}))
-// const entry = isProd ? ['./src/index.js'] : ['webpack-hot-middleware/client', './src/index.js']
 
 const entry = isProd ? ['babel-polyfill', './src/index.js'] : [
 	'react-hot-loader/patch', 
